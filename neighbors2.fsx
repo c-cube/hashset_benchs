@@ -1,4 +1,5 @@
-open System
+#require "System.Collections.Generic"
+
 open System.Collections.Generic
 
 type [<Struct>] P =
@@ -34,4 +35,4 @@ let rec nthLoop n (s1: HashSet<_>) (s2: HashSet<_>) =
 let nth n p =
   nthLoop n (HashSet([p], cmp)) (HashSet(cmp))
 
-Printf.printf "result is %d\n" (nth 2000 (P(0, 0))).Count
+printfn "result is %d" (nth 2000 (P(0, 0))).Count

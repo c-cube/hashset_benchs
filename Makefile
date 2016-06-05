@@ -14,7 +14,7 @@ rust:
 	rustc -O neighbors2.rs -o neighbors2_rust
 
 fsharp:
-	fsharpc neighbors2.fs
+	fsharpc neighbors2.fsx
 
 
 # ocamlfind ocamlopt -g -O3 -package containers.data -linkpkg neighbors2.ml -o neighbors2_ocaml
