@@ -6,6 +6,10 @@ all: ocaml fsharp rust
 	@time ./neighbors2_ocaml
 	@echo "=== rust"
 	@time ./neighbors2_rust
+	@echo "=== clojure"
+	@time clojure neighbors2.clj
+	@echo "=== clojure_bis"
+	@time clojure neighbors2_bis.clj
 
 ocaml:
 	ocamlfind ocamlopt -O3 neighbors2.ml -o neighbors2_ocaml
