@@ -1,5 +1,8 @@
+#![allow(non_snake_case)]
+
 use std::collections::HashSet;
 use std::hash::BuildHasherDefault;
+//use std::collections::HashSet::DefaultHasher;
 
 use std::default::Default;
 use std::hash::Hasher;
@@ -20,25 +23,21 @@ impl Hasher for FnvHasher {
     }
 
     #[inline]
-    fn write(&mut self, bytes: &[u8]) {
-        let FnvHasher(mut hash) = *self;
+    fn write(&mut self, _: &[u8]) {}
 
-        for byte in bytes.iter() {
-            hash = hash ^ (*byte as u64);
-            hash = hash.wrapping_mul(0x100000001b3);
-        }
-
-        *self = FnvHasher(hash);
+    #[inline]
+    fn write_i32(&mut self, i: i32) {
+        self.0 = self.0 * 4000 + i as u64;
     }
 }
 
 type Set = HashSet<(i32, i32), BuildHasherDefault<FnvHasher>>;
 
 fn Empty() -> Set {
-	let fnv = BuildHasherDefault::<FnvHasher>::default();
-	HashSet::with_hasher(fnv)
+       let fnv = BuildHasherDefault::<FnvHasher>::default();
+       HashSet::with_hasher(fnv)
 }
-	
+
 fn iterNeighbors<F>(mut f: F, (i, j): (i32, i32)) -> ()
     where F: FnMut((i32, i32)) -> ()
 {
