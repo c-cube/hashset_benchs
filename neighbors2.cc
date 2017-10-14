@@ -12,7 +12,7 @@ struct PairHash {
 
 typedef std::unordered_set<Pair, PairHash> Set;
 
-bool contains(const Set& s, const Pair& p) {
+inline bool contains(const Set& s, const Pair& p) {
   return s.find(p) != s.end();
 }
 
@@ -30,12 +30,12 @@ const Set nth_loop(int n, Set& s1, Set& s2, Set& s0) {
   if (n == 0) {
     return s1;
   } else {
+    auto add = [&](const Pair& p){
+      if (!(contains(s1, p) || contains(s2, p))) {
+        s0.insert(p);
+      }
+    };
     for (auto p : s1) {
-      auto add = [&](const Pair& p){
-	if (!(contains(s1, p) || contains(s2, p))) {
-	  s0.insert(p);
- 	}
-      };
       iter_neighbors(add, p);
     }
     s2.clear();

@@ -37,7 +37,7 @@ run:
 	@$(time) ./neighbors2_clang++
 
 ocaml neighbors2_ocaml: neighbors2.ml
-	ocamlfind ocamlopt neighbors2.ml -o neighbors2_ocaml
+	ocamlfind ocamlopt -O3 neighbors2.ml -o neighbors2_ocaml
 
 rust neighbors2_rust: neighbors2.rs
 	rustc -O neighbors2.rs -o neighbors2_rust
@@ -52,3 +52,15 @@ clang++ neighbors2_clang++: neighbors2.cc
 	clang++-4.0 --std=c++11 -O3 -o neighbors2_clang++ neighbors2.cc
 
 # ocamlfind ocamlopt -g -O3 -package containers.data -linkpkg neighbors2.ml -o neighbors2_ocaml
+
+# To run ocamlfind ocamlopt -O3 requires flambda
+
+# You will need opam if you don't have it already:
+#   sudo apt install opam
+#   opam update
+#   [see https://opam.ocaml.org/doc/Usage.html#Basics]
+#
+#   opam switch 4.04.0+flambda
+#   opam install ocamlfind
+
+
