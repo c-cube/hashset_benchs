@@ -6,7 +6,7 @@ typedef std::pair<int, int> Pair;
 
 struct PairHash {
   int operator()(const Pair& p) const {
-    return p.first * p.second * 4000;
+    return p.first + p.second * 4000;
   }
 };
 
