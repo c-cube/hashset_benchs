@@ -21,47 +21,47 @@ user 3.97
 sys 0.31
 
 Anton Carver
-Fri 13 Oct 22:06:35 BST 2017
+Mon 16 Oct 13:47:30 BST 2017
 model name	: Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
 === F#
 result is 8000
-real 2.58
-user 2.45
-sys 0.13
+real 2.54
+user 2.46
+sys 0.09
 === OCaml
 result is 8000
-real 2.65
-user 2.65
+real 2.64
+user 2.63
 sys 0.00
 === rust
 8000
-real 1.96
-user 1.96
+real 1.97
+user 1.97
 sys 0.00
 === clojure
 result is 8000
-real 4.80
-user 9.25
-sys 0.42
+real 4.77
+user 9.31
+sys 0.40
 === clojure_bis
 result is 8000
-real 3.07
-user 6.63
-sys 0.48
+real 3.13
+user 6.57
+sys 0.44
 === clojure_empty (empty program for startup overhead)
-real 1.23
-user 3.91
-sys 0.24
+real 1.29
+user 4.16
+sys 0.29
 === C++ (G++)
 8000
-real 2.54
-user 2.54
+real 2.34
+user 2.33
 sys 0.00
 === C++ (Clang/LLVM)
 8000
-real 2.60
-user 2.60
+real 2.38
+user 2.38
 sys 0.00
 
-Order is: Rust (1.96), G++ ~ F# ~ C++ (2.54-2.60), OCaml (2.65), Clojure
+Order is: Rust (1.97), G++ ~ C++ (2.34-2.38), F# (2.54) OCaml (2.64), Clojure
 
